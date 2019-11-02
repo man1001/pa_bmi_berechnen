@@ -30,6 +30,8 @@ public class Patient {
 	}
 	
 	public String zustandBestimmen(double bmi){
+		
+		// Wenn Patient maenlich ist
 		if(geschlecht=='m'){
 			if(bmi<20){
 				return "Untergewicht";
@@ -48,7 +50,25 @@ public class Patient {
 			}
 			
 		}
-		
+		//wenn Patient weiblich ist:
+		if(geschlecht=='w'){
+			if(bmi<19){
+				return "Untergewicht";
+			}
+			if(19<=bmi && bmi<24){
+				return "Normalgewicht";
+			}
+			if(bmi>=24 && bmi<30){
+				return "Übergewicht";
+			}
+			if(bmi>=30 && bmi<40){
+				return "Starkes Übergewicht (Adipositas)";
+			}
+			if(bmi>=40){
+				return "Extremes Übergewicht";
+			}
+			
+		}
 		
 		return "";
 	}
