@@ -5,6 +5,7 @@ public class Patient {
 	char geschlecht;
 	double gewicht;
 	double groesse;
+	double brocaIdeal;
 	
 	public Patient(String name, char geschlecht, double gewicht, double groesse){
 		this.name = name;
@@ -27,6 +28,12 @@ public class Patient {
 			return 21.0;
 		}
 		return 0;
+	}
+	
+	//Bestimmung des Idealgewichts nach Paul Broca
+	public void idealBorca(){
+		double gewCM = groesse*100;
+		brocaIdeal = gewCM -100;
 	}
 	
 	public String zustandBestimmen(double bmi){
@@ -71,6 +78,18 @@ public class Patient {
 		}
 		
 		return "";
+	}
+	
+	public void getAlleWerte(){
+		System.out.println("Patient Name: "+name);
+		System.out.println("Patient Geschlecht: "+geschlecht);
+		System.out.println("Patient Groeﬂe: "+groesse +"m");
+		System.out.println("Patient Gewicht: "+gewicht+" kg");
+		System.out.println("Patient BMI (gerundet): " + Math.round(bmiBerechnen()));
+		System.out.println("Patient Zustand: "+ zustandBestimmen(bmiBerechnen()));
+		System.out.println("Idealer BMI: "+idealBerechnen());
+		idealBorca();
+		System.out.println("Idealgewicht nach Borca: "+ brocaIdeal+" kg");
 	}
 	
 }
